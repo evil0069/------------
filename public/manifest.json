@@ -1,0 +1,21 @@
+{
+  "name": "Chance AI Companion",
+  "short_name": "Chance",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "description": "Your romantic cyberpunk AI companion.",
+  "icons": [
+    {
+      "src": "/images/companion-4.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/images/companion-4.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
