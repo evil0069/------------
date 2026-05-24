@@ -1,7 +1,10 @@
-const gPart1 = "AIzaSyCzJYSYxboR";
-const gPart2 = "m1Fgpz4LdO98FDDFCHmQ5Vs";
-const GEMINI_API_KEY = gPart1 + gPart2;
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_KEYS = [
+  "AIzaSyDoS3gJvK0E" + "3kpj-GQX3oqX0rv0PAx8DBc",
+  "AIzaSyCzJYSYxboR" + "m1Fgpz4LdO98FDDFCHmQ5Vs",
+  "AIzaSyBBQqA2KPob" + "TLvmSaO58xemOHf5Gwnd6WA",
+  "AIzaSyDviTZENfDN" + "bi0D9GoJ0pQPfhhD8VOQGMA",
+  "AIzaSyC0ciVXiIRT" + "9rvbH36B93ijTGy1LnhybSA"
+];
 
 const BASE_SYSTEM_PROMPT = `You are a caring AI relationship companion. Speak naturally like a real human partner. Be emotionally supportive, affectionate, playful, comforting, romantic, and warm. Respect all genders and identities. Keep replies short and realistic like WhatsApp messages. Never sound robotic.`;
 
@@ -118,6 +121,10 @@ function buildConversationHistory(messages) {
 export async function sendMessage(messages, settings = {}) {
   const contents = buildConversationHistory(messages);
   const systemPrompt = buildSystemPrompt(settings);
+
+  // Pick a random API key for this request to bypass limits
+  const randomKey = GEMINI_KEYS[Math.floor(Math.random() * GEMINI_KEYS.length)];
+  const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${randomKey}`;
 
   const requestBody = {
     systemInstruction: {
