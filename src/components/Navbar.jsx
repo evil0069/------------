@@ -30,8 +30,8 @@ export default function Navbar() {
     }
   };
 
-  // Don't show navbar on chat page (it has its own header)
-  if (location.pathname === '/chat') return null;
+  // Don't show navbar on chat page or stats page (they have their own headers)
+  if (location.pathname === '/chat' || location.pathname === '/stats') return null;
 
   return (
     <motion.nav

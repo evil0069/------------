@@ -6,6 +6,7 @@ import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Chat from './pages/Chat';
 import Settings from './pages/Settings';
+import Stats from './pages/Stats';
 
 export default function App() {
   return (
@@ -31,8 +32,17 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/stats"
+            element={
+              <ProtectedRoute>
+                <Stats />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </AuthProvider>
     </HashRouter>
   );
 }
+

@@ -10,7 +10,7 @@ export default function TypingIndicator({ aiName }) {
       transition={{ duration: 0.2 }}
     >
       <div className="chat-avatar">
-        <img src="./images/companion-4.jpg" alt={aiName || 'Chance'} />
+        <img src="/images/companion-4.jpg" alt={aiName || 'Chance'} />
       </div>
       <div className="chat-bubble ai-bubble typing-bubble">
         <span className="bubble-sender">{aiName || 'Chance'}</span>

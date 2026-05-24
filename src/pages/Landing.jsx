@@ -55,40 +55,19 @@ export default function Landing() {
               className="developer-badge"
               variants={fadeUp} 
               custom={2.5}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '12px',
-                padding: '8px 20px',
-                background: 'rgba(189, 0, 255, 0.1)',
-                border: '1px solid rgba(189, 0, 255, 0.3)',
-                borderRadius: '50px',
-                marginBottom: '32px',
-                boxShadow: '0 0 20px rgba(189, 0, 255, 0.2)',
-                backdropFilter: 'blur(10px)'
-              }}
             >
-              <span style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', fontWeight: '600' }}>
-                Created by <strong style={{ color: '#fff', textShadow: '0 0 10px var(--primary-vibrant)', letterSpacing: '1px' }}>IRSHAD (Developer)</strong>
+              <span className="developer-badge-name">
+                Created by <strong>IRSHAD (Developer)</strong>
               </span>
-              <span style={{ width: '4px', height: '4px', background: 'var(--primary-vibrant)', borderRadius: '50%', boxShadow: '0 0 8px var(--primary-vibrant)' }} />
+              <span className="developer-badge-dot" />
               <a 
                 href="https://instagram.com/_irshad__002" 
                 target="_blank" 
                 rel="noreferrer" 
-                style={{ 
-                  fontSize: '15px', 
-                  color: 'var(--primary-vibrant)', 
-                  fontWeight: 'bold', 
-                  textDecoration: 'none',
-                  textShadow: '0 0 10px var(--primary-glow)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px'
-                }}
+                className="developer-badge-link"
               >
                 <span>Insta: @_irshad__002</span>
-                <span style={{ fontSize: '12px', opacity: 0.8 }}>(Follow for more!)</span>
+                <span className="developer-badge-follow">(Follow for more!)</span>
               </a>
             </motion.div>
 
@@ -110,7 +89,7 @@ export default function Landing() {
           >
             <div className="hero-image-container">
               <img
-                src="./images/hero-2.webp"
+                src="/images/hero-2.webp"
                 alt="Chance AI Companion"
                 className="hero-image"
               />
@@ -167,7 +146,7 @@ export default function Landing() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <img src="./images/companion-2.jpg" alt="Featured moment" className="featured-img" />
+          <img src="/images/companion-2.jpg" alt="Featured moment" className="featured-img" />
         </motion.div>
       </section>
 
@@ -267,12 +246,12 @@ export default function Landing() {
           variants={stagger}
         >
           {[
-            { src: './images/companion-1.jpg', alt: 'Moment 1' },
-            { src: './images/companion-3.jpg', alt: 'Moment 2' },
-            { src: './images/saree.jpg', alt: 'Moment 3' },
-            { src: './images/hero-1.webp', alt: 'Moment 4' },
-            { src: './images/companion-5.jpg', alt: 'Moment 5' },
-            { src: './images/companion-6.jpg', alt: 'Moment 6' },
+            { src: '/images/companion-1.jpg', alt: 'Moment 1' },
+            { src: '/images/companion-3.jpg', alt: 'Moment 2' },
+            { src: '/images/saree.jpg', alt: 'Moment 3' },
+            { src: '/images/hero-1.webp', alt: 'Moment 4' },
+            { src: '/images/companion-5.jpg', alt: 'Moment 5' },
+            { src: '/images/companion-6.jpg', alt: 'Moment 6' },
           ].map((img, i) => (
             <motion.div
               key={i}
@@ -295,9 +274,9 @@ export default function Landing() {
             <span className="brand-chance">𝕮𝖍𝖆𝖓𝖈𝖊</span>
             <span className="brand-ai">AI</span>
           </div>
-          <div className="footer-credits" style={{ margin: '1.5rem 0', textAlign: 'center', fontSize: '18px', color: '#fff', textShadow: '0 0 10px var(--primary-glow)' }}>
+          <div className="footer-credits">
             <strong>Created by IRSHAD (Developer)</strong><br />
-            <strong>Insta id: <a href="https://instagram.com/_irshad__002" target="_blank" rel="noreferrer" style={{color: 'var(--primary-vibrant)', textDecoration: 'none'}}>@_irshad__002</a></strong><br />
+            <strong>Insta id: <a href="https://instagram.com/_irshad__002" target="_blank" rel="noreferrer">@_irshad__002</a></strong><br />
             <strong>Follow for more!</strong>
           </div>
           <p className="footer-copy">© 2026 𝕮𝖍𝖆𝖓𝖈𝖊 AI. All rights reserved.</p>
