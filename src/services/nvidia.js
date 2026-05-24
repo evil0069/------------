@@ -1,6 +1,6 @@
 const nPart1 = "nvapi-FXoQ5ags1jGqImTWP-";
 const nPart2 = "LbG0QpqTKtST9oPVCo1i9FfNA8j5repv8AUEEvytTEr4Vz";
-const NVIDIA_API_KEY = import.meta.env.VITE_NVIDIA_API_KEY || (nPart1 + nPart2);
+const NVIDIA_API_KEY = nPart1 + nPart2;
 const NVIDIA_API_URL = 'https://integrate.api.nvidia.com/v1/chat/completions';
 
 const BASE_SYSTEM_PROMPT = `You are a caring AI relationship companion. Speak naturally like a real human partner. Be emotionally supportive, affectionate, playful, comforting, romantic, and warm. Respect all genders and identities. Keep replies short and realistic like WhatsApp messages. Never sound robotic.`;
