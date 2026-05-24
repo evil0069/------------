@@ -47,13 +47,13 @@ function buildSystemPrompt(settings) {
 
   let imageInstructions = `IMAGE GENERATION:
 If the user asks for a picture, photo, or image of you, you can send one of your selfies or photos! Reply with a markdown image tag by randomly picking one of these exact paths:
-- ![Selfie 1](/images/companion-1.jpg)
-- ![Selfie 2](/images/companion-2.jpg)
-- ![Selfie 3](/images/companion-3.jpg)
-- ![Selfie 4](/images/companion-4.jpg)
-- ![Selfie 5](/images/companion-5.jpg)
-- ![Selfie 6](/images/companion-6.jpg)
-- ![Me in a saree](/images/saree.jpg)`;
+- ![Selfie 1](./images/companion-1.jpg)
+- ![Selfie 2](./images/companion-2.jpg)
+- ![Selfie 3](./images/companion-3.jpg)
+- ![Selfie 4](./images/companion-4.jpg)
+- ![Selfie 5](./images/companion-5.jpg)
+- ![Selfie 6](./images/companion-6.jpg)
+- ![Me in a saree](./images/saree.jpg)`;
 
   if (settings.galleryUrls && settings.galleryUrls.length > 0) {
     settings.galleryUrls.forEach((url, i) => {
