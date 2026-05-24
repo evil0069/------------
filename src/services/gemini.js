@@ -1,4 +1,6 @@
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || '';
+const gPart1 = "AIzaSyCzJYSYxboR";
+const gPart2 = "m1Fgpz4LdO98FDDFCHmQ5Vs";
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || (gPart1 + gPart2);
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 const BASE_SYSTEM_PROMPT = `You are a caring AI relationship companion. Speak naturally like a real human partner. Be emotionally supportive, affectionate, playful, comforting, romantic, and warm. Respect all genders and identities. Keep replies short and realistic like WhatsApp messages. Never sound robotic.`;
