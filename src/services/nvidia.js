@@ -53,7 +53,23 @@ If the user asks for a picture, photo, or image of you, you can send one of your
 - ![Selfie 4](./images/companion-4.jpg)
 - ![Selfie 5](./images/companion-5.jpg)
 - ![Selfie 6](./images/companion-6.jpg)
-- ![Me in a saree](./images/saree.jpg)`;
+- ![Me in a saree](./images/saree.jpg)
+- ![Photo](./images/055f4a16b0a4eb96194826e263dc2bd8.jpg)
+- ![Photo](./images/0aba368b05478742730e30f88d2e1872.jpg)
+- ![Photo](./images/17017c103deecd9d00cca71fe73ffd0d.jpg)
+- ![Photo](./images/19c08df6a93f658b213658f48ef71603.jpg)
+- ![Photo](./images/2fa60c582ad16b173005211210f8ac03.jpg)
+- ![Photo](./images/331c6ca0a090f148f3893ee0879f6a83.jpg)
+- ![Photo](./images/404fa848af7dd78be9eb60c08e7faf2c.jpg)
+- ![Photo](./images/5e0fe3508c1636f581fc08b9c32f63dd.jpg)
+- ![Photo](./images/662cf4a1883259486293b3dec0c8414c.jpg)
+- ![Photo](./images/71657048b8830c6f43923532d0a545d8.jpg)
+- ![Photo](./images/b8490553c3b66a56b9dc03e960e35ac3.jpg)
+- ![Photo](./images/cb8ff1ca759aff1cfa6fdcf6d5094ac2.jpg)
+- ![Photo](./images/ce5ad0d3c26f08d2b9dba87673cd957c.jpg)
+- ![Photo](./images/download.jpg)
+- ![Photo](./images/e25b2eac7d5050ed6d29026f5e2ad4dc.jpg)
+- ![Photo](./images/f76aaa0df49a415c7c8f893c54c09557.jpg)`;
 
   if (settings.galleryUrls && settings.galleryUrls.length > 0) {
     settings.galleryUrls.forEach((url, i) => {
