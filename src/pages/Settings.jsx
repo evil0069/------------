@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { useAuth } from '../contexts/AuthContext';
-import { db } from '../firebase';
+import { db, storage } from '../firebase';
 
 const RELATIONSHIP_TYPES = [
   'Partner',
@@ -54,6 +55,46 @@ export default function Settings() {
   const [newImageUrl, setNewImageUrl] = useState('');
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      alert('Please upload an image file');
+      return;
+    }
+
+    setUploading(true);
+    setUploadProgress(0);
+
+    const storageRef = ref(storage, `users/${user.uid}/gallery/${Date.now()}_${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        setUploadProgress(progress);
+      },
+      (error) => {
+        console.error('Upload error:', error);
+        alert('Failed to upload image. Ensure your Firebase Storage rules allow uploads.');
+        setUploading(false);
+      },
+      async () => {
+        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+        setSettings(prev => ({
+          ...prev,
+          galleryUrls: [...(prev.galleryUrls || []), downloadURL]
+        }));
+        setUploading(false);
+        setUploadProgress(0);
+      }
+    );
+  };
 
   useEffect(() => {
     if (!user) return;
@@ -307,6 +348,24 @@ export default function Settings() {
             >
               Add
             </button>
+          </div>
+
+          <div style={{ marginTop: '12px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <input
+              type="file"
+              accept="image/*"
+              id="gallery-upload"
+              style={{ display: 'none' }}
+              onChange={handleFileUpload}
+            />
+            <label 
+              htmlFor="gallery-upload" 
+              className="btn-secondary" 
+              style={{ cursor: 'pointer', display: 'inline-block', textAlign: 'center', margin: 0 }}
+            >
+              Upload from Computer
+            </label>
+            {uploading && <span style={{ fontSize: '14px', color: 'var(--primary-vibrant)' }}>Uploading {uploadProgress}%...</span>}
           </div>
 
           <div className="gallery-list" style={{ marginTop: '1rem', display: 'flex', flexDirection: 'column', gap: '8px' }}>

@@ -9,6 +9,7 @@ import {
   getFirestore,
   enableIndexedDbPersistence,
 } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJvo12T1-RYpQyFqFyV4pNKAOfszW6y4k",
@@ -25,6 +26,7 @@ export const auth = getAuth(app);
 setPersistence(auth, browserLocalPersistence);
 
 export const db = getFirestore(app);
+export const storage = getStorage(app);
 
 // Enable offline persistence for Firestore
 try {
