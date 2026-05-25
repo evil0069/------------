@@ -60,6 +60,7 @@ export default function Chat() {
   const inputRef = useRef(null);
   const chatContainerRef = useRef(null);
   const chatMessagesRef = useRef(null);
+  const hasAutoSelected = useRef(false);
 
   // ── Load settings ──
   useEffect(() => {
@@ -135,12 +136,18 @@ export default function Chat() {
     return () => unsubscribe();
   }, [user]);
 
+  // Reset initial conversation load flag when user changes
+  useEffect(() => {
+    hasAutoSelected.current = false;
+  }, [user]);
+
   // Automatically select the most recent conversation on load
   useEffect(() => {
-    if (!currentConversationId && conversations.length > 0) {
+    if (!hasAutoSelected.current && conversations.length > 0) {
       setCurrentConversationId(conversations[0].id);
+      hasAutoSelected.current = true;
     }
-  }, [conversations, currentConversationId]);
+  }, [conversations]);
 
 
   // ── Load messages ──
@@ -645,6 +652,15 @@ export default function Chat() {
             }}
           >
             🤫
+          </button>
+          <button
+            className="header-icon-btn"
+            onClick={() => navigate('/call', { state: { conversationId: currentConversationId } })}
+            aria-label="Call"
+            title="Voice Call"
+            style={{ fontSize: '18px' }}
+          >
+            📞
           </button>
           <button className="header-icon-btn" onClick={() => navigate('/stats')} aria-label="Stats" title="Stats">📊</button>
           <button className="header-icon-btn" onClick={() => setShowSidebar(!showSidebar)} aria-label="Menu">⋮</button>

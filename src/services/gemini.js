@@ -173,7 +173,7 @@ export async function sendMessage(messages, settings = {}) {
       temperature: 0.9,
       topK: 40,
       topP: 0.95,
-      maxOutputTokens: 256,
+      maxOutputTokens: settings.maxTokens || 256,
     },
     safetySettings: [
       {

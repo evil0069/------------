@@ -146,7 +146,7 @@ export async function sendMessageNvidia(messages, settings = {}) {
     messages: contents,
     temperature: 0.8,
     top_p: 0.9,
-    max_tokens: 256,
+    max_tokens: settings.maxTokens || 256,
   };
 
   try {

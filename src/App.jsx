@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Chat from './pages/Chat';
 import Settings from './pages/Settings';
 import Stats from './pages/Stats';
+import Call from './pages/Call';
 
 export default function App() {
   return (
@@ -21,6 +22,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Chat />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/call"
+            element={
+              <ProtectedRoute>
+                <Call />
               </ProtectedRoute>
             }
           />
